@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+}
+
+#regForm {
+  background-color: #D2B48C;
+  margin: 100px auto;
+  font-weight: bold;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center; 
+  font-family: Arial;
+	font-weight: bold;
+}
+h4{
+	font-family: Arial;
+	font-weight: bold;
+}
+
+input {
+  padding: 0px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+body{
+background-image: url("1.jpg");
+
+}
+</style>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<a class="navbar-brand" href="#">
+	<img src="julius.png" style="width: 120px;">
+	</a>
+  <ul class="navbar-nav">
+    
+      <a class="nav-link" href="/academy/dashboard.html">Dashboard</a>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="/academy/regist.html">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://www.juliuspara.academy/">Academy Website</a>
+    </li>
+   
+  </ul>
+</nav>
+	<body>
+
+	<form id="regForm" action="/academy/store_page.php" method="post" name="myform">
+  <h1>New Registeration</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">
+  <div class="row">
+  	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Enrollment Date</label>
+  <input type="date" name="edate" oninput="this.className">
+  </div>
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Course Start Date</label>
+  <input type="date" name="sdate" oninput="this.className">
+  </div>
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Course End Date</label>
+  <input type="date" name="cedate" oninput="this.className">
+  </div>
+  
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+	<h4>Courses</h4>
+		<label>First Choice<br></label>
+	<select name="first_course"  oninput="this.className = ''" placeholder="Enter programme">
+	<option value="none">--Choose Course--</option>
+	<option value="ELP">English language programme</option>
+	<option value="CEG">Certificate in English Grammar</option>
+	<option value="CAEG">Certificate in Advanced English Grammar</option>
+	<option value="CTP">Certificate in Teaching Pronunciation</option>
+	<option value="CTPE">Certificate in Teaching Practice</option>
+	<option value="CTYL">Certificate in Teaching Young Learners and Teenagers</option>
+	<option value="CTFL">Certificate in Teaching English as a Foreign Language</option>
+	<option value="DMET">Diploma in the Montessori Method of English Language Teaching</option>
+	<option value="DTSOL">Diploma in Teaching English to Speakers of Other Languages</option>
+	<option value="BM">Diploma in Business Management,University Foundation Programme (Level3)</option>
+	<option value="DIM">Extended Diploma in Management University 1st and @nd Year (Level 4 and 5)</option>
+	<option value="BAM">Diploma In Business and Administrative Management ( Level 6 Postgraduate MBA Entry) </option>
+	<option value="GDTSOL">Graduate Diploma in Teaching English to Speakers of Other Languages </option>
+	<option value="MBA">Business Strategic Management MBA Advance Entry (Level 7)</option>
+	</select>
+	<br>
+	</div>
+	<p>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-9">
+	<label>Second Choice</label>	
+	<select name="second_course" oninput="this.className = ''">
+	<option value="none">--Choose Course--</option>
+	<option value="ELP">English language programme</option>
+	<option value="CEG">Certificate in English Grammar</option>
+	<option value="CAEG">Certificate in Advanced English Grammar</option>
+	<option value="CTP">Certificate in Teaching Pronunciation</option>
+	<option value="CTPE">Certificate in Teaching Practice</option>
+	<option value="CTYL">Certificate in Teaching Young Learners and Teenagers</option>
+	<option value="CTFL">Certificate in Teaching English as a Foreign Language</option>
+	<option value="DMET">Diploma in the Montessori Method of English Language Teaching</option>
+	<option value="DTSOL">Diploma in Teaching English to Speakers of Other Languages</option>
+	<option value="BM">Diploma in Business Management,University Foundation Programme (Level3)</option>
+	<option value="DIM">Extended Diploma in Management University 1st and @nd Year (Level 4 and 5)</option>
+	<option value="BAM">Diploma In Business and Administrative Management ( Level 6 Postgraduate MBA Entry) </option>
+	<option value="GDTSOL">Graduate Diploma in Teaching English to Speakers of Other Languages </option>
+	<option value="MBA">Business Strategic Management MBA Advance Entry (Level 7)</option>
+	
+	</select>
+
+	</div>
+		<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-9">
+	<label>Third Choice</label>	
+	<select name="third_course" oninput="this.className = ''">
+	<option value="none">--Choose Course--</option>
+	<option value="ELP">English language programme</option>
+	<option value="CEG">Certificate in English Grammar</option>
+	<option value="CAEG">Certificate in Advanced English Grammar</option>
+	<option value="CTP">Certificate in Teaching Pronunciation</option>
+	<option value="CTPE">Certificate in Teaching Practice</option>
+	<option value="CTYL">Certificate in Teaching Young Learners and Teenagers</option>
+	<option value="CTFL">Certificate in Teaching English as a Foreign Language</option>
+	<option value="DMET">Diploma in the Montessori Method of English Language Teaching</option>
+	<option value="DTSOL">Diploma in Teaching English to Speakers of Other Languages</option>
+	<option value="BM">Diploma in Business Management,University Foundation Programme (Level3)</option>
+	<option value="DIM">Extended Diploma in Management University 1st and @nd Year (Level 4 and 5)</option>
+	<option value="BAM">Diploma In Business and Administrative Management ( Level 6 Postgraduate MBA Entry) </option>
+	<option value="GDTSOL">Graduate Diploma in Teaching English to Speakers of Other Languages </option>
+	<option value="MBA">Business Strategic Management MBA Advance Entry (Level 7)</option>
+	
+	</select>
+
+	</div>
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Full Name</label>
+<input type="text" class="form-control" id="name" name="fullname" oninput="this.className = ''" placeholder="Enter Fullname" required>
+</div>	
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Identification number</label>
+<input type="text" class="form-control" id="ic" name="IC" oninput="this.className = ''" placeholder=" Enter IC Num (xxxx-xx-xxxx)" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-10 col-md-10 col-lg-4">
+<label>Phone number</label>
+<input type="text" class="form-control" id="fon" name="phone_num" oninput="this.className = ''" placeholder="Enter Phone Number" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+<label>Address</label>
+<input type="textarea" class="form-control" id="address" oninput="this.className = ''" name="val[Address]" placeholder="Enter Address" required>
+</div>
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Race</label>
+<input type="text" class="form-control" id="race" name="val[RACE]" oninput="this.className = ''" placeholder="Enter Race"required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Religion</label>
+<input type="text" class="form-control" id="religion" name="val[RELIGION]" oninput="this.className = ''" placeholder="Enter Religion" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Date of Birth</label>
+<input type="date" class="form-control" id="dob" name="val[DOB]"oninput="this.className = ''" placeholder="Enter Phone Number" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Email</label>
+<input type="text" class="form-control" id="email"  name="val[Email]" oninput="this.className = ''" placeholder="Enter Email" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Gender</label>
+<input type="text" class="form-control" id="gender" name="val[gender]" oninput="this.className = ''" placeholder="Enter Gender" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Marital Status</label>
+<input type="text" class="form-control" id="status" name="val[status]" oninput="this.className = ''" placeholder="Enter Status" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Facebook URL</label>
+<input type="text" class="form-control" id="fb" name="val[FB]" oninput="this.className = ''" placeholder="Enter Facebook" required>
+</div>
+
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+<label>Twitter</label>
+<input type="text" class="form-control" id="twitter" name="val[tuiter]" oninput="this.className = ''" placeholder="Enter Twitter" required>
+</div>
+</div>
+</div>
+
+  <div class="tab">Parents/ Guardian's contact
+  <div class="row">
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Name</label>
+	<input type="text" class="form-control" id="gName" name="val[gName]" oninput="this.className = ''" placeholder="Enter Guardian's name" required>
+   </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Identification Number</label>
+	<input type="text" class="form-control" id="gIc" name="val[gIc]" oninput="this.className = ''" placeholder="Enter Identification number" required>
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+	<label>Address</label>
+	<input type="text" class="form-control" id="gAdd" name="val[gAdd]" oninput="this.className = ''" placeholder="Enter Address" required>
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Occupation</label>
+	<input type="text" class="form-control" id="job" name="val[job]" oninput="this.className = ''" placeholder="Enter Occupation" required>
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Phone Number</label>
+	<input type="text" class="form-control" id="twitter" name="val[gfon]" oninput="this.className = ''" placeholder="Enter Phone number" required>
+	</div>
+	</div>
+	<div class="row">
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Name</label>
+	<input type="text" class="form-control" id="gName" name="val[g2Name]" oninput="this.className = ''" placeholder="Enter Guardian's name" >
+   </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Identification Number</label>
+	<input type="text" class="form-control" id="gIc" name="val[g2Ic]" oninput="this.className = ''" placeholder="Enter Identification number" >
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+	<label>Address</label>
+	<input type="text" class="form-control" id="gAdd" name="val[g2Add]" oninput="this.className = ''" placeholder="Enter Address" >
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Occupation</label>
+	<input type="text" class="form-control" id="job" name="val[job2]" oninput="this.className = ''" placeholder="Enter Occupation" >
+	</div>
+	<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Phone Number</label>
+	<input type="text" class="form-control" id="twitter" name="val[g2fon]" oninput="this.className = ''" placeholder="Enter Phone number" >
+	</div>
+	</div>
+  </div>
+  
+  <div class="tab">Education Background:
+  <div class="row">
+  
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+	<label>High School</label>
+	<input type="text" class="form-control" id="Hschool" name="val[Hschool]" oninput="this.className = ''" placeholder="Enter Highschool" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>From-To(year)</label>
+	<input type="text" class="form-control" id="gName" name="val[from]" oninput="this.className = ''" placeholder="Enter year's school" >
+   </div>
+<div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Did you graduate</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" name="val[grad]" value="YES"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" name="val[grad]" value="NO"> No
+	</label>
+	</div>
+  </div>
+ 
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Achievment</label>
+	<input type="text" class="form-control" id="gName" name="val[achievment1]" oninput="this.className = ''" placeholder="Enter Achievment" >
+   </div>
+  </div>
+  <div class="row">
+  
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-8">
+	<label>University/College</label>
+	<input type="text" class="form-control" id="Hschool" name="val[Hschool1]" oninput="this.className = ''" placeholder="Enter University" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>From-To(year)</label>
+	<input type="text" class="form-control" id="gName" name="val[from1]" oninput="this.className = ''" placeholder="Enter year's " >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Did you graduate</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" name="val[grad1]" value="YES"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" name="val[grad1]" value="NO"> No
+	</label>
+	</div>
+  </div>
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Achievment</label>
+	<input type="text" class="form-control" id="gName" name="val[achievment2]" oninput="this.className = ''" placeholder="Enter Achievment" >
+   </div>
+  </div>
+  </div>
+  
+ 
+  <div class="tab">Employeement details
+  <div class="row">
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Company</label>
+	<input type="text" class="form-control" id="company"	name="val[company]" oninput="this.className = ''" placeholder="Enter company" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Occupation</label>
+	<input type="text" class="form-control" id="occu" name="val[occu]" oninput="this.className = ''" placeholder="Enter Occupation" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Year</label>
+	<input type="text" class="form-control" id="year" name="val[year]" oninput="this.className = ''" placeholder="Enter Year" >
+   </div>
+   </div>
+   <div class="row">
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+   <label>Company</label>
+	<input type="text" class="form-control" id="company2"	name="val[company2]" oninput="this.className = ''" placeholder="Enter company" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Occupation</label>
+	<input type="text" class="form-control" id="occu2" name="val[occu2]" oninput="this.className = ''" placeholder="Enter Occupation" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Year</label>
+	<input type="text" class="form-control" id="year2" name="val[year2]" oninput="this.className = ''" placeholder="Enter Year" >
+   </div>
+   </div>
+   </div>
+  
+  <div class="tab">Sponsorship
+  <div class="row">
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+  <label>Name</label>
+	<input type="text" class="form-control" id="sName"	name="val[sName]" oninput="this.className = ''" placeholder="Enter Sponsor" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Identification Number</label>
+	<input type="text" class="form-control" id="sIc" name="val[sIc]" oninput="this.className = ''" placeholder="Enter Id Number" >
+   </div>
+   <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Telephone</label>
+	<input type="text" class="form-control" id="sPhone" name="val[sPhone]" oninput="this.className = ''" placeholder="Enter Phone Number" >
+   </div>
+   </div>
+   </div>
+   
+    <div class="tab">Medical History
+  <div class="row">
+  *Please indicate if you have ever suffered from or experienced or recieved treatment for the following diseases and condition:
+ <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Bronchial Asthma</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="YES" name="val[asma]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="NO" name="val[asma]"> No
+	</label>
+	</div>
+  </div>
+  
+	 <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Hypertension</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="YES"  name="val[tension]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="NO"name="val[tension]"> No
+	</label>
+	</div>
+  </div>
+  
+  <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Hearing Problem</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="YES" name="val[hearing]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="NO" name="val[hearing]"> No
+	</label>
+	</div>
+  </div>
+  
+ <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Diabetes Mellitus</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="YES"name="val[diabetes]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="NO" name="val[diabetes]"> No
+	</label>
+	</div>
+  </div>
+  
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Heart Disease</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="YES"name="val[heart]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="NO" name="val[heart]"> No
+	</label>
+	</div>
+  </div>
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Kidney Disease</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="YES" name="val[kidney]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="No" name="val[kidney]"> No
+	</label>
+	</div>
+  </div>
+  
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>Psychiatric Illness</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="YES"name="val[pysc]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input"value="NO" name="val[psyc]"> No
+	</label>
+	</div>
+  </div>
+  
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+	<label>HIV/AIDS</label>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="YES"name="val[hiv]"> Yes
+	</label>
+	</div>
+	<div class="form-check">
+	<label class="form-check-label">
+	<input type="radio" class="form-check-input" value="NO"name="val[hiv]"> No
+	</label>
+	</div>
+  </div>
+  
+</div>
+</div>
+
+   <div style="overflow:auto;">
+    <div style="float:right;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+	</div>
+  
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:40px;">
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+    <span class="step"></span>
+	<span class="step"></span>
+	<span class="step"></span>
+  </div>
+	</form>
+
+<script>
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the crurrent tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
+
+</body>
+</head>
+</html>
